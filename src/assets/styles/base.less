@@ -1,0 +1,105 @@
+@import "variable.less";
+
+html{
+	line-height: 1;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+  font-family: 'Avenir',Microsoft YaHei,PingFang SC, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	background: @color-background;
+	color: @color-text;
+  overflow: hidden;
+}
+
+html,body{
+  height: 100%;
+}
+
+.box-shadow {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.app-header-fixed{
+	padding-top: @header-height;
+}
+
+.header-fold{
+	.header-left{
+		flex:0 0 @flex-width-fold!important;
+	}
+}
+
+.menu-fold{
+  flex:0 0 @flex-width-fold!important;
+  .aside-wrap{
+    width: @flex-width-fold!important;
+    .navi-wrap{
+      width: @flex-width-fold+17px!important;
+      .el-menu {
+        width: @flex-width-fold!important;
+      }
+    }
+  }
+}
+
+.app-content-fold{
+	margin-left: @flex-width-fold!important;
+}
+
+.tc{
+	text-align: center!important;
+}
+
+.tr{
+  text-align: right!important;
+}
+//select input框宽度强制修改
+.el-input__icon + .el-input__inner{
+  padding-right: 10px;
+}
+//强制去掉select 箭头偏移
+.el-select .el-input .el-input__icon,.el-select .el-input .el-input__icon.is-reverse{
+	transform:translateY(-50%) rotateZ(180deg);
+}
+
+.page-ctrl{
+  padding-top: 15px;
+  text-align: right;
+}
+
+.p-b{
+  padding-bottom: 15px;
+}
+
+.p-t{
+  padding-top: 15px;
+}
+
+
+//头像上传样式/单张图片上传样式
+.avatar-uploader{
+  .el-upload {
+    border: 1px dashed #20a0ff;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      border-color: #20a0ff;
+    }
+  }
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 180px;
+  height: 180px;
+  line-height: 180px;
+  text-align: center;
+}
+.avatar {
+  width: 180px;
+  height: 180px;
+  display: block;
+}
