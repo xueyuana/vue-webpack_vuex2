@@ -2,25 +2,22 @@
   <div class="layout">
     <my-header></my-header>
     <div class="content">
-      <my-menu></my-menu>
+      <my-menu :menuList="menu" :iscollapse="asideFolded" class="my-menu"></my-menu>
       <div class="app-content">
         <div class="breadcrumb-tabsview">
-          <bread-crumb><span class="fa fa-home"></span></bread-crumb>
-          <tabs-views-link></tabs-views-link>
+          <bread-crumb></bread-crumb>
         </div>
     	  <div class="app-content-body">
-    		  <tabs-views><router-view></router-view></tabs-views>
+          <router-view></router-view>
     	  </div>
       </div>
     </div>
-    <!-- <footer><my-footer></my-footer></footer> -->
   </div>
 </template>
 <script>
   import Cookies from 'js-cookie'
   import MyHeader from 'components/layout/MyHeader'
   import MyMenu from 'components/layout/MyMenu'
-  // import MyFooter from 'views/layout/footer'
   import BreadCrumb from 'components/layout/BreadCrumb'
   import TabsViewsLink from 'components/layout/TabsViewsLink'
   import TabsViews from 'components/layout/TabsViews'
@@ -37,8 +34,24 @@
     },
     computed: {
       ...mapGetters([
+        'menuList',
         'asideFolded'
-      ])
+      ]),
+      menu () {
+        let list = []
+        this.menuList.forEach((item) => {
+          list.push({
+            name: item.name,
+            id: item.id,
+            path: item.path,
+            icon:item.icon,
+            noDropdown:false,
+            isEnabled:true,
+            children:[]
+          })
+        })
+        return list
+      }
     },
     methods: {
   		getUserMenu(){
@@ -67,23 +80,22 @@
       .content {
           display: flex;
           height: 100%;
+        .my-menu {
+          box-sizing: border-box;
+          background-color: @my-menu-background;
+        }
     		.app-content{
           flex:1;
-	        position: relative;
 	        height: 100%;
-    			background-color: @content-background;
+    			background-color: @bread-crumb-background;
     			overflow-x: hidden;
+          padding: 15px 20px 0;
     			.breadcrumb-tabsview{
-    			  position: fixed;
     			  width: 100%;
-    			  z-index: 10;
-    			  padding: 6px 15px;
-    			  background-color: @bread-crumb-background;
+            margin: 12px 0;
     			}
     			.app-content-body{
-    			  position: relative;
-        	  padding: 15px 15px 60px;
-            top: @bread-crumb-height;
+            height: 90%;
     			}
     		}
       }

@@ -1,10 +1,9 @@
 <template>
   <div class="breadcrumb">
-    <slot></slot>
     <span v-for="(m, index) in breadCrumbList">
       <a class="breadcrumb-z" href="javascript:void(0)" v-if="(breadCrumbList.length - 1) !== index">{{m.name}} </a>
       <span v-else class="breadcrumb-c">{{m.name}}</span>
-      <span v-if="(breadCrumbList.length - 1) !== index" style="color:#999;">&nbsp;&nbsp;>&nbsp;&nbsp;</span>
+      <span v-if="(breadCrumbList.length - 1) !== index" style="color:#6ac5fe;">&nbsp;&nbsp;>&nbsp;&nbsp;</span>
     </span>
   </div>
 </template>
@@ -44,16 +43,13 @@
     display: inline-block;
     padding: 3px 0;
     .breadcrumb-z{
-      color: #657180;
-      font-size: 14px;
+      color: #6ac5fe;
+      font-size: 13px;
       font-weight: 700;
-      // &:hover{
-      //   color: #5cadff;
-      // }
     }
     .breadcrumb-c{
-      font-size: 14px;
-      color: #657180;
+      font-size: 16px;
+      color: #fff;
       font-weight: 700;
     }
   }

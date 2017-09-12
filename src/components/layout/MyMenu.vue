@@ -1,11 +1,11 @@
 <template>
-  <el-menu class="my-menu" router :collapse="asideFolded" :default-active="$route.path"  :unique-opened="true" @select="handleSelect" @open="handleOpen" @close="handleClose" theme="dark">
+  <el-menu class="my-menu" :class="{'small-menu': smallMenu}" router :collapse="iscollapse" :default-active="$route.path"  :unique-opened="true" @select="handleSelect" @open="handleOpen" @close="handleClose" theme="dark">
     <template v-for="(item,mIndex) in menuList">
       <el-menu-item v-if="!item.noDropdown && item.children.length === 0" :index="item.path">
         <i class="fa" :class="item.icon"></i>
         <span slot="title" v-text="item.name"></span>
       </el-menu-item>
-      <el-submenu :index="item.id" v-if="item.noDropdown">
+      <el-submenu class="my-submenu" :index="item.id" v-if="item.noDropdown">
         <template slot="title">
           <i class="fa" :class="item.icon"></i>
           <span slot="title" v-text="item.name"></span>
@@ -29,19 +29,24 @@
   import {mapGetters, mapMutations, mapActions} from 'vuex'
 
   export default {
+    props: {
+      menuList: {
+        required: true
+      },
+      iscollapse: {},
+      smallMenu: {
+        default: false
+      }
+    },
     data() {
       return {
-        
+
       }
     },
     computed: {
-      ...mapGetters([
-        'menuList',
-        'asideFolded'
-      ])
     },
     created() {
-      
+
     },
     methods: {
       handleOpen(key, keyPath) {
@@ -62,16 +67,32 @@
   }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
   @import '~assets/styles/variable.less';
   .my-menu:not(.el-menu--collapse) {
     width: @flex-width;
-    min-height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
   }
   .my-menu::-webkit-scrollbar {
     display: none;
+  }
+
+  .el-menu--dark .el-submenu .el-menu {
+    background-color: @submenu-menu-background;
+  }
+  .my-menu {
+    padding-top: 30px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .small-menu {
+    padding-top: 0;
+    .el-menu-item, .el-submenu__title {
+      height: 44px;
+      line-height: 44px;
+      font-size: 13px;
+    }
   }
 
   .fa {

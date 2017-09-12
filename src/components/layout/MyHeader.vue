@@ -1,5 +1,5 @@
 <template>
-	<div class="app-header box-shadow" :class="{'header-fold':asideFolded}">
+	<div class="app-header" :class="{'header-fold':asideFolded}">
 		<div class="header-left">
 			<span class="fa fa-html5"></span>
 			<span v-show="!asideFolded" v-text="appName"></span>
@@ -40,11 +40,11 @@
 		created(){
 			this.appName = utils.appName;
 		},
-	    computed: {
-	      ...mapGetters([
-	        'asideFolded'
-	      ])
-	    },
+    computed: {
+      ...mapGetters([
+        'asideFolded'
+      ])
+    },
 		methods: {
 			_setAsideFolded(){
 				let tempAsideFolded = false;
@@ -80,17 +80,16 @@
 <style lang="less" rel="stylesheet/less">
 	@import '~assets/styles/variable.less';
 	.app-header{
+    position: fixed;
+    top: 0;
 		display: flex;
-		position: fixed;
-		top: 0;
 		width: 100%;
-		z-index: 10;
 		background-color: @header-right-background;
 		height: @header-height;
 		line-height: @header-height;
+    box-shadow:  0px 0px 15px rgb(28, 56, 94);
 		.header-left{
 			flex:0 0 @flex-width;
-			background-color: @header-left-background;
 			color:@header-text-color;
 			text-align: center;
 			cursor: pointer;
