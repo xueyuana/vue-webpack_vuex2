@@ -79,6 +79,15 @@
   .el-menu--dark .el-submenu .el-menu {
     background-color: @submenu-menu-background;
   }
+  .el-menu--dark .el-menu-item, .el-menu--dark .el-submenu__title {
+    color: #fff;
+  }
+  .el-menu-item.is-active {
+    color: @font-active-color;
+  }
+  .el-menu-item, .el-submenu__title {
+    font-weight: 700;
+  }
   .my-menu {
     height: 100%;
     overflow-y: scroll;
