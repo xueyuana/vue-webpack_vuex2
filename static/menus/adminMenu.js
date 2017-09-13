@@ -9,7 +9,9 @@ const adminMenu= [
   {name: "资源仓库", id: '3', path: "/resource-repository",icon:'fa-dashboard',noDropdown:false,isEnabled:true, children:[
     {name: "应用层", id: '31', path: "/repository/31",icon:'fa-dashboard',noDropdown:false,isEnabled:true, children:[]},
     {name: "业务层", id: '32', path: "/repository/32",icon:'fa-dashboard',noDropdown:true,isEnabled:true, children:[
-      {name: "产品线", id: '321', path: "/repository/321",icon:'fa-dashboard',noDropdown:false,isEnabled:true, children:[]}
+      {name: "产品线", id: '321', path: "/repository/321",icon:'fa-dashboard',noDropdown:false,isEnabled:true, children:[
+        {name: "应用层adfad", id: '3211', path: "/repository/3211",icon:'fa-dashboard',noDropdown:false,isEnabled:true, children:[]}
+      ]}
     ]}
   ]},
 
