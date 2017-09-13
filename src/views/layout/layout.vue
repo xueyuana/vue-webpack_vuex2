@@ -71,7 +71,7 @@
   }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 	@import '~assets/styles/variable.less';
   	.layout{
   		height: 100%;

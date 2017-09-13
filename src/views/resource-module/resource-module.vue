@@ -1,5 +1,5 @@
 <template>
-  <div class="resource-module">
+  <div class="resource-module resource">
     <div class="menu">
       <div class="inner-create-btn">
         <el-button type="primary" size="small">创建模型</el-button>
@@ -38,18 +38,10 @@
     }
   }
 </script>
-<style lang="less">
+<style lang="less" scoped>
   @import '~assets/styles/variable.less';
   .resource-module {
-    width: 100%;
-    height: 100%;
-    display: flex;
     .menu {
-      min-width: 150px;
-      height: 100%;
-      margin-right: 10px;
-      background-color: @resource-menu-background;
-      position: relative;
       .inner-create-btn {
         width: 100%;
         height: 70px;
@@ -62,17 +54,8 @@
         background-color: @resource-menu-background;
       }
       .my-menu {
-        width: 150px;
-        height: 100%;
         padding-top: 70px;
-        box-sizing: border-box;
-        background-color: @resource-menu-background;
       }
-    }
-    .content {
-      flex: 1;
-      min-width: 600px;
-      background-color: @resource-menu-background
     }
   }
 

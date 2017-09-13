@@ -103,3 +103,53 @@ html,body{
   height: 180px;
   display: block;
 }
+
+//资源模型与资源仓库页面的布局
+.resource {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  .menu {
+    min-width: 150px;
+    height: 100%;
+    margin-right: 10px;
+    background-color: @resource-menu-background;
+    position: relative;
+    .my-menu {
+      width: 150px;
+      height: 100%;
+      box-sizing: border-box;
+      background-color: @resource-menu-background;
+    }
+  }
+  .content {
+    flex: 1;
+    min-width: 600px;
+    background-color: @resource-menu-background
+  }
+}
+
+//导航样式
+.small-menu {
+  .el-menu-item, .el-submenu__title {
+    height: 44px;
+    line-height: 44px;
+    font-size: 12px;
+  }
+  .el-submenu__icon-arrow {
+    margin-top: -4px;
+  }
+}
+.el-menu--dark .el-submenu .el-menu {
+  background-color: @submenu-menu-background;
+}
+.el-menu--dark .el-menu-item, .el-menu--dark .el-submenu__title {
+  color: #fff;
+}
+.el-menu-item.is-active {
+  color: @font-active-color;
+}
+.el-menu-item, .el-submenu__title {
+  font-weight: 700;
+}
+
